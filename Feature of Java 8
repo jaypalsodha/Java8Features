@@ -9,3 +9,41 @@
 		- without modifier
 
 	benefits:- It is used to enable functional programming.
+
+	let see how to write lambda expression:-
+
+	suppose we have an method
+
+	public void doSomething()
+	{
+		System.out.println("hello");
+	}
+
+	As per the defination lambda expression doesn't contains name, return type and modifier. 
+
+	so just remove all these things from above method. 
+
+	()
+	{
+		System.out.println("hello");	
+	}
+
+	to represent lambda expression they provide one special symbol called -> (arrow) is used.
+
+	() ->
+	{
+		System.out.println("hello");	
+	}
+
+	here, curly braces is the body of an method.
+
+	() ->{System.out.println("hello");}
+
+	If method body contains only one line of code, then {} becomes optional.
+	
+
+
+
+
+
+
