@@ -1,0 +1,141 @@
+
+	- If two objects are equal by == operator then these objects are always equal by .equals() method. 
+	- i.e If r1 == r2 is true, then r1.equals(r2) is always true.
+	- If two objects are not equal by == operator then we can't conclude anything about .equals method. It may returns true or false.
+	- I.e if r1 ==r2 is false, then r1.equals(f2) may returns true or false. and we can't expect exactly.
+	- if two objects are equals by .equals method then we can't conclude anything about == operator. 
+	- It may returns true or false.
+	- I.e if r1.equals(r2) is true then we can't conclude anything about r1 == r2. It may returns true or false.
+	- If two objects are not equal by .equals method then these objects are always not equals by == operator. 
+	- i.e if r1.equals(r2) is false, then r1 == r2 is always false.
+
+	Differences between  == and .equals method. 
+	 - Two use == operator compulsory there should be some relation between argument types. 
+	 (either child to parent or parent to child or same type.) otherwise we will get compile time error saying incomparable types. 
+	 - If there is not relation between arguments types, then .equals method won't raise any compile time or run time error. simply it returns false. 
+	 	String s1 = new String("jaypal");
+	 	String s2 = new String("jaypal");
+	 	StringBuffer sb1 = new StringBuffer("jaypal");
+	 	StringBuffer sb2 = new StringBuffer("jaypal");
+
+	 	System.out.println(s1 == s2);			false
+	 	System.out.println(s1.equals(s2));		true
+	 	System.out.println(sb1 == sb2);			false
+	 	System.out.println(sb1.equals(sb2));	false	
+	 	System.out.println(s1 == sb1);			compile time error saying incomparable type
+	 	System.out.println(s1.equals(sb1);		false, 
+
+
+	 	== operator
+	 	1. it is an operator in java, applicable for both primitives and object types.
+	 	2. in case of object references == operator meant for reference comparision(address comparision. 
+	 	3. we can't override  == operator for content comparision.
+	 	4. to use == compuslsory there should be some relation between argument types.
+	 		(either child to parent, or parent to child, or same type) otherwise we will get compile time error saying  incomparable types. 
+
+
+	 	equals method
+	 	1. It is an method applicable only for object types. but not for primitives. 
+	 	2. by default .equals method present in object class also meant for reference comparision. 
+	 	3. we can override .equals() method for content comparision. 
+	 	4. If there is no relation between arugment types then we won't get any compile time or run time errors, and simply returns false. 
+
+	 	answer in oneline 
+
+	 	In general we can use == for reference comparion, and .equals method for content comparision.
+
+
+	 	for any object reference r, 
+	 		r == null and r.equals(null) always return false.
+	 		Thread t = new Thread();
+	 		sop(t == null);			false
+	 		sop(t.equals(null));	false	
+
+
+	 	Note;- Hashing related data structures follow following fundamental rule:-
+	 	equivelent object means .equals method return
+
+	 	1. to equivelent objects should be placed in same bucket, but all objects present in the same bucket need not be equal. 
+
+	 	2. contract between .equals method and hashcode method. 
+	 	- If two objects are equals by .equals method then there hashcode must be equal.
+	 	- i.e two equivelent objects should have same hashcode. 
+	 	- i.e if r1.equals(r2) is true then r1.hashcode() == r2.hashcode() is always true.
+	 	-
+
+	 	Object class .equals and hashcode method follows above contract. 
+	 	hence, whenever we are overriding .equals method compuslsory we should override hashcode method, to satisfy above contract. 
+
+	 	i.e two equivelent objects should same hashcode. 
+
+	 	If two objects are not equal by .equals method, then there is no restriction on hashcodes.
+
+	 	may be equal or may not be equal. 
+
+	 	If hashcodes of two objects are equal then we can't conclude anything about .equals method. 
+	 	It may returns true or false. 
+
+	 	If hashcodes of two objects are not equal then these objects are always not equal by .equals method. 
+
+	 	Note:- to satisfy contract between equals and hashcode methods whenever we are overriding .equals method, compulsory we have to override hashcode method. 
+	 	otherwise we won't get any compile time error or runtime errors. but it is not a good programming practise. 
+
+	 	In string class .equals method is override for content comparision. 
+	 	and hence hashcode method is also overriden to generate hashcode based on content. 
+
+	 	In StringBuffer .equals method is not overriden for content comparision. and hence hashcode method is also not overriden.
+
+
+	 	StringBuffer s1 = new StringBuffer("jaypal");
+	 	StringBuffer s2 = new StringBuffer("jaypal");
+	 	sop(s1.equals(s2));
+	 	sop(s1.hashCode());
+	 	sop(s2.hashCode());
+
+	 	Consider the following Person Class
+
+	 	Class Person{
+
+
+	 	public boolean equals(Object o){
+
+	 		if(o instanceof Person){
+
+	 			Person p = (Person)p;
+
+	 			if(name.equals(p.name) && age.equals(p.age)){
+	 				return true;
+	 			}
+	 			else{
+	 				return false;
+	 			}
+	 		}
+	 	return false;
+	 	}
+
+
+	 	which of the following hashcode methods are appropriate for Person class.
+
+	 	public int hashCode ()
+	 		{
+	 			return 100;
+	 		}
+
+		public int hashCode ()
+	 		{
+	 			return age + ssoNumber;
+	 		}
+
+	 	public int hashCode ()
+	 		{
+	 			return name.hashCode() + age;
+	 		}	
+	 	no restriction. 
+	 		
+
+	 	based on which parameters we override .equals method, it is highly recommended to use same parameters while overriding hashcode methods also. 
+	 	
+	 	Note:- in all collection classes, in all wrapper classes and in String class equals method is overriden, for content comparision.
+
+	 	hence it is highly recommended to override equals method in our class also for content comparision.
+	 	
