@@ -40,10 +40,44 @@
 	() ->{System.out.println("hello");}
 
 	If method body contains only one line of code, then {} becomes optional.
+
+
+	example 2:- 
+	using java 7 :- 
+	public void m1(int a, int b)
+	{
+		System.out.println(a+b);
+	}
+
+	using lambda expression. 
+
+	(a,b)-> System.out.println(a+b);
+
+	example 3:- 
 	
+	using java 7 
+	public int squareIt(int n)
+	{
+		return n*n;
+	}
+	using lambda expression
+
+	(int n)-> {return n*n;}
+	Or
+	(int n)-> n*n; //without brackets you don't need to specify return keyword 
+	Or
+	(n) -> n*n; // if only one parameter is there,then bracket is also not needed
+	or
+	n -> n*n;
 
 
 
+	public void m1(String s)
+	{
+		return s.length();
+	}
 
-
+	using lambda expression
+	
+	s -> s.length();
 
