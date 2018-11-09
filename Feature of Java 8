@@ -179,6 +179,35 @@ Default Method | Virtual Extension Method | Defender Method :-
 	- without affecting implementation classes if we want to add new method to the interface, we can use default method. 
 
 
+	Example for default method:::::
 
 
+		interface Left
+		{
+			default void m1(){
+				System.out.println("Left Interface Method");
+			}
+		}
+		interface Right
+		{
+			default void m1(){
+				System.out.println("Right interface Method");
+			}	
+		}
+
+		class Test implements Left, Right
+		{
+			public void m1()
+			{
+				System.out.println("implementing method m1");
+			}
+			public static void main(String[] args) {
+				Test t = new Test();
+				t.m1();
+			}
+		}
+
+		here if we remove method m1() from the implementing class(i.e Test Class) then code won't compile, because there are same default methods in Left and Right method, so which method to call.
+
+		
 	
