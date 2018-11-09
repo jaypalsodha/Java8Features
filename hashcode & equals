@@ -11,8 +11,10 @@
 
 	Differences between  == and .equals method. 
 	 - Two use == operator compulsory there should be some relation between argument types. 
-	 (either child to parent or parent to child or same type.) otherwise we will get compile time error saying incomparable types. 
-	 - If there is not relation between arguments types, then .equals method won't raise any compile time or run time error. simply it returns false. 
+	 (either child to parent or parent to child or same type.) otherwise we will get compile time error saying 
+	 incomparable types. 
+	 - If there is not relation between arguments types, then .equals method won't raise any compile time or run 
+	 time error. simply it returns false. 
 	 	String s1 = new String("jaypal");
 	 	String s2 = new String("jaypal");
 	 	StringBuffer sb1 = new StringBuffer("jaypal");
@@ -31,7 +33,8 @@
 	 	2. in case of object references == operator meant for reference comparision(address comparision. 
 	 	3. we can't override  == operator for content comparision.
 	 	4. to use == compuslsory there should be some relation between argument types.
-	 		(either child to parent, or parent to child, or same type) otherwise we will get compile time error saying  incomparable types. 
+	 		(either child to parent, or parent to child, or same type) otherwise we will get compile time error saying 
+			incomparable types. 
 
 
 	 	equals method
@@ -55,7 +58,8 @@
 	 	Note;- Hashing related data structures follow following fundamental rule:-
 	 	equivelent object means .equals method return
 
-	 	1. to equivelent objects should be placed in same bucket, but all objects present in the same bucket need not be equal. 
+	 	1. to equivelent objects should be placed in same bucket, but all objects present in the same bucket need not 
+		be equal. 
 
 	 	2. contract between .equals method and hashcode method. 
 	 	- If two objects are equals by .equals method then there hashcode must be equal.
@@ -64,7 +68,8 @@
 	 	-
 
 	 	Object class .equals and hashcode method follows above contract. 
-	 	hence, whenever we are overriding .equals method compuslsory we should override hashcode method, to satisfy above contract. 
+	 	hence, whenever we are overriding .equals method compuslsory we should override hashcode method, to satisfy 
+		above contract. 
 
 	 	i.e two equivelent objects should same hashcode. 
 
@@ -77,13 +82,15 @@
 
 	 	If hashcodes of two objects are not equal then these objects are always not equal by .equals method. 
 
-	 	Note:- to satisfy contract between equals and hashcode methods whenever we are overriding .equals method, compulsory we have to override hashcode method. 
+	 	Note:- to satisfy contract between equals and hashcode methods whenever we are overriding .equals method, 
+		compulsory we have to override hashcode method. 
 	 	otherwise we won't get any compile time error or runtime errors. but it is not a good programming practise. 
 
 	 	In string class .equals method is override for content comparision. 
 	 	and hence hashcode method is also overriden to generate hashcode based on content. 
 
-	 	In StringBuffer .equals method is not overriden for content comparision. and hence hashcode method is also not overriden.
+	 	In StringBuffer .equals method is not overriden for content comparision. and hence hashcode method is also 
+		not overriden.
 
 
 	 	StringBuffer s1 = new StringBuffer("jaypal");
@@ -133,9 +140,11 @@
 	 	no restriction. 
 	 		
 
-	 	based on which parameters we override .equals method, it is highly recommended to use same parameters while overriding hashcode methods also. 
+	 	based on which parameters we override .equals method, it is highly recommended to use same parameters while 
+		overriding hashcode methods also. 
 	 	
-	 	Note:- in all collection classes, in all wrapper classes and in String class equals method is overriden, for content comparision.
+	 	Note:- in all collection classes, in all wrapper classes and in String class equals method is overriden, 
+		for content comparision.
 
 	 	hence it is highly recommended to override equals method in our class also for content comparision.
 	 	
