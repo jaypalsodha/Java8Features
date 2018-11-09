@@ -66,9 +66,9 @@
 	Or
 	(int n)-> n*n; //without brackets you don't need to specify return keyword 
 	Or
-	(n) -> n*n; // if only one parameter is there,then bracket is also not needed
+	(n) -> n*n; // if only one argument is there,then paranthesis is also not needed
 	or
-	n -> n*n;
+	n -> n*n; // if body contain only one line the curly braces are not needed.
 
 
 
@@ -78,6 +78,107 @@
 	}
 
 	using lambda expression
-	
+
 	s -> s.length();
 
+	without curly braces we cannot use return statement
+	within curly braces if we want to return some value then we must have to use return statement. 
+
+
+	Once we write lambda expressions.
+
+	Functional Interface
+
+		- Functional interface is an interface which contains single abstract method(SAM).
+
+
+	
+	Functional Interface with respect to Inheritance
+
+	-----------------------------------------------------------------------------------
+	@FunctionalInterface
+	interface A
+	{
+		public void m1();
+
+	}
+	@FunctionalInterface	
+	interface B extends A
+	{
+
+	}
+
+	above example is perfectly valid. . 
+
+	----------------------------------------------------------------------------------
+	@FunctionalInterface
+	interface A
+	{
+		public void m1();
+
+	}
+	@FunctionalInterface	
+	interface B extends A
+	{
+		public void m1(); /// overriding concept is there, so its valid
+	}
+
+	--------------------------------------------------------------------------------
+	@FunctionalInterface
+	interface A
+	{
+		public void m1();
+
+	}
+	@FunctionalInterface	
+	interface B extends A
+	{
+		public void m2(); /// Child interface contains two abstract methods
+	}
+
+	--------------------------------------------------------------------------------
+	@FunctionalInterface
+	interface A
+	{
+		public void m1();
+
+	}
+	//@FunctionalInterface	 removed annotation, so it is valid
+	interface B extends A
+	{
+		public void m2(); /// valid because its normal interface
+	}	
+
+	---------------------------------------------------------------------------------
+
+
+
+	Lambda expression for Multi Threading
+
+	Lambda expression with Collections class
+
+	Use Lambda expression for our own class.
+
+	Anonymous inner class is more power full than lambda expression. 
+
+
+	as lambda expression can only be used with only functional interface. 
+
+	but anonymous inner class can be used for both the cases.
+
+
+Default Methods:- 
+	- 1.8 version onwards we can take default methods inside interface. 
+	- untill 1.7v every method present inside interface always ::: public and abstract.
+	- in 1.8 version default methods and static method allowed.
+	- in 1.9 version private methods are also allowed.
+	- every variable present inside interface is always public static final. 
+
+Default Method | Virtual Extension Method | Defender Method :-
+	- without affecting implementation classes. 
+	- without affecting implementation classes if we want to add new method to the interface, we can use default method. 
+
+
+
+
+	
