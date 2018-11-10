@@ -207,7 +207,187 @@ Default Method | Virtual Extension Method | Defender Method :-
 			}
 		}
 
-		here if we remove method m1() from the implementing class(i.e Test Class) then code won't compile, because there are same default methods in Left and Right method, so which method to call.
+		here if we remove method m1() from the implementing class(i.e Test Class) then code
+		won't compile, because there are same default methods in Left and Right method, so
+		which method to call.
 
-		
+
+Main purpose of Default method inside interface:- 
+	- without affecting implementation classes, If we want to add new method to the interface.
+
+
+To define general utility method inside interface with static method.
+
+static methods are not directly available to the imlementation classes. 
+
+we have to call that method using interface Name. 	
 	
+
+
+Predefined Functional Interfaces:- 
+---------------------------------------------------------------------------------------------
+ - Predicate
+ - Function
+ - Consumer
+ - Supplier
+
+
+Two argument predefined Functional Interfaces:- 
+---------------------------------------------------------------------------------------------
+ - BiPredicate
+ - BiFunction
+ - BiConsumer
+
+primitive Functional Interfaces:- 
+---------------------------------------------------------------------------------------------
+ - IntPredicate
+ - IntFunction
+ - IntConsumer  
+
+
+Predicate(I):- functional interface
+ - Predicate functional interface is mainly use to check conditional checks.
+ - single parameter is allowed for predicate function.
+ - Type of parameter can be any datatype like Integer, float, double, or any object type.
+ - we use lambda expression to write our condtion inside the predicate.
+ - example
+ 	interface Predicate<T>
+ 	{
+ 		public abstract boolean test(T t);
+ 	}
+
+ - to check the boolean condition then we can go for Predicate function.
+
+ 	Example for Predicate use:- 
+
+		import java.util.function.Predicate;
+		class Test
+		{
+			public static void main(String[] args) {
+				
+				//using p
+				Predicate<Integer> p = i ->i%2==0;
+				System.out.println(p.test(10));
+				
+				System.out.println();
+
+				Predicate<String> p1 = s ->s.equals("jaypal") || s.equals("sodha");
+				System.out.println(p1.test("jaypal"));
+				System.out.println(p1.test("sodha"));
+
+				Employee emp = new Employee("karan",24);
+				Predicate<Employee> empPredicate = namePara -> namePara.name.equals("jaypal sodha");
+
+				Predicate<Employee> agePredicate = agePara -> agePara.age.equals(24);
+				System.out.println(empPredicate.test(emp));
+				System.out.println(agePredicate.test(emp));
+
+			}
+		}
+
+		class Employee
+		{
+			String name;
+			Integer age;
+
+			Employee(String name, Integer age){
+				this.name = name;
+				this.age = age;
+			}
+		}
+
+Predicate joining:- 
+ - we can join two predicate condition together using "and" and "or" method present in predicate functional interface.
+ - we can also use negate() method to get the reverse result of predicate condition.		
+
+
+Function (Predefined Functional interaface):- 
+ 
+ example:- 
+
+ interface Function<T,R>
+ {
+ 	public abstract R apply(T t);
+ }
+
+	import java.util.function.*;
+	class FunctionDemo
+	{
+		public static void main(String[] args) {
+			
+			Function<String,String> f = s->s.toUpperCase();
+			System.out.println(f.apply("jaypal"));
+		}	
+	}
+
+
+---------------------------------------------------------------------------------------
+import java.util.function.*;
+
+class Student
+{
+	String name;
+	int marks;
+	Student(String name, int marks)
+	{
+		this.name = name;
+		this.marks = marks;
+	}
+}
+class FunctionDemo
+{
+	public static void main(String[] args) {
+		
+		Student[] s = new Student[5];
+		s[0] = new Student("rajesh",96);
+		s[1] = new Student("hitesh",10);
+		s[2] = new Student("rajes",50);
+		s[3] = new Student("rajes",66);
+		s[4] = new Student("rajes",76);
+
+		Function<Student,String> fun = student->
+		{
+			int marks = student.marks;
+			String grade = "";
+			if(marks > 80) grade = "A[Distinction]";
+			else if(marks > 60) grade = "B[First Class]";
+			else if(marks > 50) grade = "C[Second Class]";
+			else if(marks > 35) grade = "D[Third Class]";
+			else grade = "E[Failed]";
+			return grade;
+		};
+
+		for(Student s1 : s){
+			System.out.println("Student name :"+ s1.name);
+			System.out.println("Student marks :"+ s1.marks);
+			System.out.println("Student grade :"+ fun.apply(s1));
+			System.out.println();
+		}
+	}	
+}
+--------------------------------------------------------------------------------------
+
+
+function chaining:- 
+
+f1.andThen(f2).apply(i);
+
+first f1 and then f2 will be applied
+
+--------------------------------------------------------------------------------------
+
+import java.util.function.*;
+
+class FunctionDemo
+{
+	public static void main(String[] args) {
+		
+		Function<Integer,Integer> f1 = i-> 2*i;
+		Function<Integer,Integer> f2 = i-> i*i*i;
+
+		System.out.println(f1.andThen(f2).apply(2));  //64
+		System.out.println(f1.compose(f2).apply(2));  //16
+		
+	}
+}
+---------------------------------------------------------------------------------------
