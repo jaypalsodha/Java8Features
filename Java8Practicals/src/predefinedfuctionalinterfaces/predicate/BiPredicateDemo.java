@@ -15,9 +15,7 @@ import java.util.function.BiPredicate;
  */
 public class BiPredicateDemo {
     public static void main(String[] args) {
-
         BiPredicate<Integer,String> biPredicate = (age,name)-> age >20 && name.length() >3;
         System.out.println("young boy  . . "+biPredicate.test(20,"jaypal"));
-
     }
 }
