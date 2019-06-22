@@ -14,18 +14,18 @@ Benefits
 How to write the Lambda Expresssion
 - suppose we have an method
 
-	public void doSomething()
+	'''public void doSomething()
 	{
 		System.out.println("hello");
-	}
+	}'''
 
 - As per the defination lambda expression doesn't contains name, return type and modifier. 
 - so just remove all these things from above method. 
 --------------------------------------------------------------
-	()
+	'''()
 	{
 		System.out.println("hello");	
-	}
+	}'''
 --------------------------------------------------------------
 	to represent lambda expression they provide one special symbol called -> (arrow) is used.
 
