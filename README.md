@@ -11,32 +11,26 @@ Defination
 Benefits
 - It is used to enable functional programming.
 
-```javascript
-function hello(name) {
-  console.log(name);
-}
-```
 
 How to write the Lambda Expresssion
 - suppose we have an method
 
-'''java
+```java
 public void doSomething()
 	{
 		System.out.println("hello");
 	}
-'''
+```
 
 - As per the defination lambda expression doesn't contains name, return type and modifier. 
 - so just remove all these things from above method. 
---------------------------------------------------------------
-	'''java
+
+	```java
 	()
 	{
 		System.out.println("hello");	
 	}
-	'''
---------------------------------------------------------------
+	```
 	to represent lambda expression they provide one special symbol called -> (arrow) is used.
 
 	() ->
