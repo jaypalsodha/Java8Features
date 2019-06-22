@@ -1,14 +1,12 @@
 # Java8Features
 
 
-										java 8 Features
-------------------------------------------------------------------------------------------------
-
-1. Lambda Expression:- 
-	defination:- It is an anonymous function. 
-		- nameless
-		- without return type
-		- without modifier
+# Lambda Expression
+defination 
+- It is an anonymous function. 
+	- nameless
+	- without return type
+	- without modifier
 
 	benefits:- It is used to enable functional programming.
 
