@@ -25,45 +25,45 @@ public void doSomething()
 - As per the defination lambda expression doesn't contains name, return type and modifier. 
 - so just remove all these things from above method. 
 
-	```java
-	()
-	{
-		System.out.println("hello");	
-	}
-	```
-	to represent lambda expression they provide one special symbol called -> (arrow) is used.
+```java
+()
+{
+	System.out.println("hello");	
+}
+```
+- To represent lambda expression they provide one special symbol called -> (arrow) is used.
 
-	() ->
-	{
-		System.out.println("hello");	
-	}
+```java() ->
+{
+	System.out.println("hello");	
+}```
 
-	here, curly braces is the body of an method.
+Here, curly braces is the body of an method.
 
-	() ->{System.out.println("hello");}
+```java() ->{System.out.println("hello");}```
 
-	If method body contains only one line of code, then {} becomes optional.
+- If method body contains only one line of code, then {} becomes optional.
 
-
-	example 2:- 
-	using java 7 :- 
-	public void m1(int a, int b)
+- Using java 7 :- 
+```java	public void m1(int a, int b)
 	{
 		System.out.println(a+b);
 	}
+```	
 
-	using lambda expression. 
+- Using lambda expression. 
 
-	(a,b)-> System.out.println(a+b);
+	```java (a,b)-> System.out.println(a+b); ```
 
-	example 3:- 
-	
-	using java 7 
-	public int squareIt(int n)
+		
+- Using java 7 
+```java
+public int squareIt(int n)
 	{
 		return n*n;
 	}
-	using lambda expression
+```	
+-Using lambda expression
 
 	(int n)-> {return n*n;}
 	Or
@@ -90,15 +90,12 @@ public void doSomething()
 
 	Once we write lambda expressions.
 
-	Functional Interface
+# Functional Interface
+ - Functional interface is an interface which contains single abstract method(SAM).
 
-		- Functional interface is an interface which contains single abstract method(SAM).
+Functional Interface with respect to Inheritance
 
-
-	
-	Functional Interface with respect to Inheritance
-
-	-----------------------------------------------------------------------------------
+```java	
 	@FunctionalInterface
 	interface A
 	{
@@ -110,10 +107,10 @@ public void doSomething()
 	{
 
 	}
-
+```
 	above example is perfectly valid. . 
 
-	----------------------------------------------------------------------------------
+```java	
 	@FunctionalInterface
 	interface A
 	{
@@ -125,8 +122,8 @@ public void doSomething()
 	{
 		public void m1(); /// overriding concept is there, so its valid
 	}
-
-	--------------------------------------------------------------------------------
+```
+```java	
 	@FunctionalInterface
 	interface A
 	{
@@ -138,8 +135,8 @@ public void doSomething()
 	{
 		public void m2(); /// Child interface contains two abstract methods
 	}
-
-	--------------------------------------------------------------------------------
+```
+```java	
 	@FunctionalInterface
 	interface A
 	{
@@ -151,23 +148,15 @@ public void doSomething()
 	{
 		public void m2(); /// valid because its normal interface
 	}	
-
-	---------------------------------------------------------------------------------
-
-
-
-	Lambda expression for Multi Threading
-
-	Lambda expression with Collections class
-
-	Use Lambda expression for our own class.
-
-	Anonymous inner class is more power full than lambda expression. 
-
-
-	as lambda expression can only be used with only functional interface. 
-
-	but anonymous inner class can be used for both the cases.
+```
+	
+Usability of Lambda Expression
+- Lambda expression for Multi Threading
+- Lambda expression with Collections class
+- Use Lambda expression for our own class.
+- Anonymous inner class is more power full than lambda expression. 
+- as lambda expression can only be used with only functional interface. 
+- but anonymous inner class can be used for both the cases.
 
 
 Default Methods:- 
@@ -227,7 +216,7 @@ we have to call that method using interface Name.
 	
 
 
-Predefined Functional Interfaces:- 
+# Predefined Functional Interfaces:- 
 ---------------------------------------------------------------------------------------------
  - Predicate
  - Function
@@ -235,20 +224,20 @@ Predefined Functional Interfaces:-
  - Supplier
 
 
-Two argument predefined Functional Interfaces:- 
+# Two argument predefined Functional Interfaces:- 
 ---------------------------------------------------------------------------------------------
  - BiPredicate
  - BiFunction
  - BiConsumer
 
-primitive Functional Interfaces:- 
+# Primitive Functional Interfaces:- 
 ---------------------------------------------------------------------------------------------
  - IntPredicate
  - IntFunction
  - IntConsumer  
 
 
-Predicate(I):- functional interface
+# Predicate(I):- functional interface
  - Predicate functional interface is mainly use to check conditional checks.
  - single parameter is allowed for predicate function.
  - Type of parameter can be any datatype like Integer, float, double, or any object type.
@@ -299,12 +288,12 @@ Predicate(I):- functional interface
 			}
 		}
 
-Predicate joining:- 
+# Predicate joining:- 
  - we can join two predicate condition together using "and" and "or" method present in predicate functional interface.
  - we can also use negate() method to get the reverse result of predicate condition.		
 
 
-Function (Predefined Functional interaface):- 
+#Function (Predefined Functional interaface)
  
  example:- 
 
@@ -371,7 +360,7 @@ class FunctionDemo
 --------------------------------------------------------------------------------------
 
 
-function chaining:- 
+#Function Chaining:- 
 
 f1.andThen(f2).apply(i);
 
@@ -399,7 +388,7 @@ class FunctionDemo
 
 
 
-Consumer:- 
+#Consumer:- 
 --------------------------------------------------------------------------------------
 
 Predicate<T>  -----------for boolean
@@ -466,7 +455,7 @@ class ConsumerDemo
 }
 -----------------------------------------------------------------------------------------
 
-Chaining for consumer:- 
+# Chaining for consumer:- 
 
 import java.util.function.*;
 class Movie
@@ -499,7 +488,7 @@ class ConsumerDemo1
 
 
 
-Supplier:- 
+# Supplier:- 
 -----------------------------------------------------------------------------------------
  - never take any input parameter.
  - return the supplied type of supplier.
